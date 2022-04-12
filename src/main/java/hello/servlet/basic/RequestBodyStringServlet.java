@@ -11,6 +11,11 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 
+/**
+ * 3. HTTP 요청 데이터 - API 메시지 바디 (단순 텍스트)
+ * 'HTTP massage body'에 데이터를 직접 담아서 요청
+ * 주로 JSON 사용
+ */
 @WebServlet(name = "requestBodyStringServlet", urlPatterns = "/request-body-string")
 public class RequestBodyStringServlet extends HttpServlet {
 
