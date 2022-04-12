@@ -1,4 +1,4 @@
-package hello.servlet.basic;
+package hello.servlet.basic.request;
 
 import org.springframework.util.StreamUtils;
 
@@ -30,6 +30,6 @@ public class RequestBodyStringServlet extends HttpServlet {
 
         System.out.println("massageBody = " + massageBody);
 
-        response.getWriter().write("requestBodyStringServlet");
+        response.getWriter().write("requestBodyStringServlet Page");
     }
 }
