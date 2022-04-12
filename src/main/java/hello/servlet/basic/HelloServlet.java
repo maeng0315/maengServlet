@@ -20,7 +20,7 @@ public class HelloServlet extends HttpServlet {
         System.out.println("request = " + request);
         System.out.println("response = " + response);
 
-        String userName = request.getParameter("userName");     //쿼리 파라미터를 편하게 가져올 수 있도록 서블릿에서 지원해주는 함수
+        String userName = request.getParameter("userName");     //쿼리 파라미터(쿼리 스트링)를 편하게 가져올 수 있도록 서블릿에서 지원해주는 함수
         System.out.println("userName = " + userName);
 
         //ContentType
