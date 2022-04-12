@@ -11,6 +11,7 @@ import java.util.Enumeration;
 /**
  * 1. HTTP 요청 데이터 - GET 쿼리 파라미터(쿼리 스트링) 전송 기능
  * http://localhost:8080/request-param?userName=maeng&age=30
+ * context-type이 존재하지 않음
  */
 @WebServlet(name = "requestParamServlet", urlPatterns = "/request-param")
 public class RequestParamServlet extends HttpServlet {

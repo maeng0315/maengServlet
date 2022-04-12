@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<!--
+    2. HTTP 요청 데이터 - POST HTML Form
+    메시지 바디에 쿼리 파라미터 형식으로 데이터 전송
+    content-type 있음
+    GET URL, POST HTML Form 둘다 쿼리 파라미터 조회 메소드 사용 가능
+    포스트맨으로 대체 가능
+-->
+
+<form action="/request-param" method="post">
+    userName: <input type="text" name="userName" />
+    age: <input type="text" name="age" />
+    <button type="submit">전송</button>
+</form>
+</body>
+</html>
