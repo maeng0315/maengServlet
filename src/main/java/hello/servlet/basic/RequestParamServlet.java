@@ -45,6 +45,6 @@ public class RequestParamServlet extends HttpServlet {
         }
         System.out.println("[복수의 파라미터 조회] - end");
 
-        response.getWriter().write("maeng");
+        response.getWriter().write("requestParamServlet");
     }
 }
