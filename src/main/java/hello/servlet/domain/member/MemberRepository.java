@@ -31,7 +31,7 @@ public class MemberRepository {
     }
 
     public List<Member> findAll() {
-        return new ArrayList<>(store.values());
+        return new ArrayList<>(store.values());     // 기존 값 유지를 위해 복사해서 리턴
     }
 
     public void clearStore() {
