@@ -58,7 +58,7 @@ public class FrontControllerServletV3 extends HttpServlet {
         return new MyView("/WEB-INF/views/" + viewName + ".jsp");
     }
 
-    //
+    // request에 있는 파라미터들을 map으로 반환
     private Map<String, String> createParamMap(HttpServletRequest request) {
         /*
             request.getParameterNames() -> 모든 파라미터네임을 다 가져옴
