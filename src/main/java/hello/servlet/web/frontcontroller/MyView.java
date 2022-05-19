@@ -15,14 +15,20 @@ public class MyView {
         this.viewPath = viewPath;
     }
 
+    // viewPath
     public void render(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
         RequestDispatcher dispatcher = request.getRequestDispatcher(viewPath);
+
         dispatcher.forward(request, response);
     }
 
+    // viewPath + model
     public void render(Map<String, Object> model, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+        // model -> setAttribute
         modelToRequestAttribute(model, request);
+
         render(request, response);
     }
 

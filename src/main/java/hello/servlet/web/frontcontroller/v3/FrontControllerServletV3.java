@@ -12,11 +12,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Map;
 
-@WebServlet(name = "frontControllerServletV3", urlPatterns = "/front-controller/V3/*")  // 하위에 들어오는 컨트롤러가 있어도 무조건 여기로 먼저 들어 오도록 맵핑 | frontController
+@WebServlet(name = "frontControllerServletV3", urlPatterns = "/front-controller/v3/*")  // 하위에 들어오는 컨트롤러가 있어도 무조건 여기로 먼저 들어 오도록 맵핑 | frontController
 public class FrontControllerServletV3 extends HttpServlet {
 
     private Map<String, ControllerV3> controllerMap = new HashMap<>();
@@ -46,29 +45,31 @@ public class FrontControllerServletV3 extends HttpServlet {
             MyView view = controller.process(request, response);
             view.render(request, response);
         */
-        Map<String, String> paramMap = crateParamMap(request);
+        Map<String, String> paramMap = createParamMap(request);
 
         ModelView mv = controller.process(paramMap);
-        String viewName = mv.getViewName();     // n
-        // ew-form
-        MyView view = viewResolver(viewName);
-        view.render(mv.getModel(), request, response);
+        String viewName = mv.getViewName();     // 논리이름 (new-form)
 
+        MyView view = viewResolver(viewName);   // new-form -> /WEB-INF/views/new-form.jsp
+        view.render(mv.getModel(), request, response);
     }
 
     private MyView viewResolver(String viewName) {
         return new MyView("/WEB-INF/views/" + viewName + ".jsp");
     }
 
-    private Map<String, String> crateParamMap(HttpServletRequest request) {
-
-        // request.getParameterNames() -> 모든 파라미터네임을 다 가져옴
-        // forEachRemaining -> 반복
-        // paramName -> Key 변수
-        // request에서 모든 파라미터 네임을 가져와서 반복하며 paramMap에 넣어 줌
+    //
+    private Map<String, String> createParamMap(HttpServletRequest request) {
+        /*
+            request.getParameterNames() -> 모든 파라미터네임을 다 가져옴
+            forEachRemaining -> 반복
+            paramName -> Key 변수
+            request에서 모든 파라미터 네임을 가져와서 반복하며 paramMap에 넣어 줌
+        */
         Map<String, String> paramMap = new HashMap<>();
         request.getParameterNames().asIterator()
                 .forEachRemaining(paramName -> paramMap.put(paramName, request.getParameter(paramName)));
+
         return paramMap;
     }
 }
