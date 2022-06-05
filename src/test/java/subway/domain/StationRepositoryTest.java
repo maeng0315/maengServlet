@@ -103,6 +103,4 @@ class StationRepositoryTest {
           JPA가 '쓰기 지연' 저장소에 있는 쿼리들을 자동으로 'flush' 해줌
         */
     }
-
-
 }
