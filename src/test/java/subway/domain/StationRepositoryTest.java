@@ -84,7 +84,7 @@ class StationRepositoryTest {
     @DisplayName("영속성 컨텍스트 - 변경 감지 | 더티 채킹")
     @Test
     void update() {
-        final Station station1 = stationRepository.save(new Station("사가정역"));
+        final Station station1 = stationRepository.save(new Station("사가정역"));   // 영속화(save) 해주지 않으면
         station1.changeName("면목역");
 
         final Station station2 = stationRepository.findByName("면목역");   // findByName으로 조회 시 1차 캐시를 거치지 않고 DB로 바로 조회

@@ -20,6 +20,22 @@ public class Station/* implements Persistable<Long>*/ {
     @Column(name = "name", nullable = false)                // Table 어노테이션과 똑같은데 컬럼에 이름을 지정해주는것, | 생략 시 마찬가지로 변수 이름 그대로 사용 | 스키마 지정 가능(nullable) |  Spring Boot Validation이 우선
     private String name;
 
+    /*
+      Station -> Line (다대일, 단방향 관계 매핑 정보) (@ManyToOne)
+      station Table안에 line Table의 FK(참조키) 컬럼 이름 지정 'line_id' (@JoinColumn) | 어노테이션이나 이름, 생략 시 자동으로 '컬럼 이름_id'
+    */
+    @ManyToOne
+    @JoinColumn(name = "line_id")
+    private Line line;
+
+    public void setLine(final Line line) {
+        this.line = line;
+    }
+
+    public Line getLine() {
+        return line;
+    }
+
     // JPA Entity 클래스에는 기본적으로 매개변수가 없는 생성자가 있어야함 | private으로 해도 되지만 나중에 프록시 객체 만들때 문제가 되서 protected로 만드는 편
     protected Station() {
     }
